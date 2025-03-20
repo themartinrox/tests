@@ -1,0 +1,20 @@
+\documentclass{article}
+\usepackage[spanish]{babel}
+
+\title{Resumen del primer comic de Invencible}
+\author{Martin Patricio Rodriguez Carrasco }
+\date{19 de Marzo 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+Invencible , creado por Robert Kirkman y Cory Walker, es el primer número de la serie de cómics publicada por Image Comics en 2003. La historia sigue a Mark Grayson, un adolescente aparentemente normal que descubre que ha heredado los poderes de su padre, Omni-Man, el superhéroe más poderoso del planeta. Este número establece las bases del universo de Invencible, introduciendo a Mark y su transición hacia la vida de superhéroe.
+\section{Desarrollo}
+El cómic comienza mostrando a Mark en su vida cotidiana, y cómo empieza a manifestar sus habilidades sobrehumanas, como fuerza y vuelo. Su padre, Nolan Grayson (Omni-Man), le explica que pertenece a una raza alienígena avanzada llamada los Viltrumitas, cuyo objetivo es ayudar a civilizaciones menos desarrolladas. Con su herencia genética, Mark está destinado a convertirse en un héroe como su padre.
+
+A lo largo del número, Mark comienza a probar sus habilidades y recibe su primer traje de superhéroe. También se presentan otros personajes secundarios que serán importantes en el futuro, como su madre Debbie y compañeros de la escuela. Mark adopta el nombre de "Invencible", marcando el inicio de su viaje como justiciero.
+\section{Final}
+El número concluye con Mark asumiendo su rol de superhéroe con entusiasmo. Aunque todavía es inexperto, está emocionado por seguir los pasos de su padre. La historia deja abierta la exploración de los desafíos que enfrentará, tanto en su vida personal como en su nueva identidad como Invencible.
+\end{document}
