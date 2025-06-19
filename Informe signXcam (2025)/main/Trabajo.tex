@@ -1,0 +1,336 @@
+\documentclass[letter,12pt]{report}
+\input{Macros}
+\def\TITULO{Título}
+\def\subtitulo{Subtítulo}
+\def\autora{Autor}
+\def\correoa{correo@alumnos.ulagos.cl}
+\def\autorb{Autor}
+\def\correob{correo@alumnos.ulagos.cl}
+\def\autorc{Autor}
+\def\correoc{correo@alumnos.ulagos.cl}
+\def\autord{Autor}
+\def\correod{correo@alumnos.ulagos.cl}
+\def\asignatura{Asignatura}
+\def\campus{Campus ???}
+\def\carrera{Ingeniería Civil en ???}
+\lstset{language=Python}
+
+
+\begin{document}
+
+%%%%%%%%%%%PORTADA%%%%%%%%%%%%%%%%%%%%%
+\setlength{\unitlength}{1 cm} %Especificar unidad de trabajo
+\thispagestyle{empty}
+
+\AddToShipoutPicture*{\BackgroundPic}
+{\color{white}
+   \title{\vspace{2cm}\huge{\MakeUppercase{\textbf{\TITULO}}}\\
+\upshape \large{\textit{\MakeUppercase{\subtitulo}}}\\ \vspace{1cm}
+  \Large \MakeUppercase{Departamento de Ciencias de La Ingeniería}\\
+  \Large \MakeUppercase{\carrera}\\
+   \Large \MakeUppercase{\asignatura}\\
+    \large \MakeUppercase{\campus, Chile}}
+   \author{
+    \parbox{\linewidth}{\hspace{68mm}\raggedright
+     \href{mailto:\correoa}{\autora}\\
+     \hspace{68mm}\raggedright\href{mailto:\correob}{\autorb}\\
+     \hspace{68mm}\raggedright\href{mailto:\correoc}{\autorc}
+     \\
+     \hspace{68mm}\raggedright\href{mailto:\correod}{\autord}
+    }
+  }
+   \date{\vspace{5cm}\hspace{7cm}\raggedright\today}
+   \maketitle
+   \ClearShipoutPicture
+   }
+
+\cleardoublepage
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+\tableofcontents
+\listoffigures
+%\renewcommand{\listtablename}{índice de tablas}
+\listoftables
+\renewcommand{\lstlistlistingname}{Índice de algoritmos}
+\lstlistoflistings
+
+%%%%%%%%%%%%%FIN PORTADA%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+%%%%%%%RESUMEN%%%%%%%%%%%
+\begin{abstract}\thispagestyle{empty}
+
+Resume en un (1) párrafo el contenido del informe en un máximo de 350 palabras.
+Debe ser preciso:
+\begin{itemize}\justifying
+  \item Establece el problema
+  \item Dice porqué es interesante
+  \item Señala los logros y desafíos
+\end{itemize}
+Un resumen debe ser llamativo, motivador, descriptivo y sin contenido específico. \textbf{No incluye}: citas, referencias, conclusiones, figuras ni tablas.
+
+
+
+\keywords{Palabra1, Palabra2, Palabra3, Palabra4, Palabra5}
+\end{abstract}
+
+\cleardoublepage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+
+
+
+
+
+%%%%%%%%COMIENZO
+
+
+\chapter{Generalidades}
+La presente investigación se enfoca principalmente en el lenguaje de señas y las barreras comunicativas existentes para personas con discapacidades auditivas o de mudez a nosotros se nos ocurrió elaborar este proyecto el cual abarca una necesidad muy grande y este prototipo cubrirá estas necesidades y nos dará a conocer estas discapacidades y las barreras sociales o comunicativas que tienen las personas.  a continuación en el informe se les hablara más a detalle sobre este prototipo como su finalidad como funciona el origen  y muchos otros puntos. 
+
+ Este documento aborda el proceso de traducción con el lenguaje de señas MNIST y el uso de la ESP32 CAM. 
+
+La contribución es mejorar la  accesibilidad para personas con discapacidades a través de algo simple y de poco costo. 
+
+Este proyecto se organiza de la siguiente manera primero se da a conocer cuál es el tema en sí a detalle contextualizando proyectos pasados de otras personas el planteamiento de este justificaciones problemas, soluciones,viabilidad fundamentación  metodología  y varios otros puntos que son importantes para este proyecto.
+
+
+
+\section{Origen del Tema}
+En el último tiempo o década se ha visto más incluida la tecnología para aportar en este tipo de proyectos ya que ha tomado más relevancia, esta barrera comunicativa la cual hace que estas personas puedan sentirse excluidas socialmente cuando ellos solo quieren que su vida sea normal y poder comunicarse con normalidad al ir al supermercado tiendas o a los lugares que quieran o necesiten concurrir con habitabilidad. Por esto mismo la visión artificial ha tomado mucha fuerza en cuanto a llevar proyectos los cuales buscan derribar esta barrera comunicativa o social de los cuales vamos a nombrar algunos como el de The Starner et AI el cual cual fue creado o anunciado en el año 1988 este trabajaba con guantes con sensores los cuales hacían que el lenguaje americano sea leído o reconocido en este caso hablamos del el lenguaje American Sign Language pero este no fue utilizado por el hecho de la utilización de los guantes con sensores como tal este no es un proyecto 
+como tal sino un conjunto de investigaciones  y desarrollo con fines de apoyar en cuanto al lenguaje de señas , también está el Pigou et AI de el año 2018 este es un sistema de reconocimiento de señas el cual utiliza Microsoft Kinect como también redes neuronales convencionales (CNNs) y aceleración por GPU . También hay otros traductores de lenguaje de señas ya acercándonos a Sudamérica podemos hablar de un sistema llamado DeepSignBridge el cual consiste en traducir este efectúa la traducción mediante una especie de robot como un transformers.
+
+
+
+ Estos proyectos son muy buenos pero igual tienen sus fallas o problemas los cuales pueden mejorar. Nuestro prototipo no consiste en ninguno de los lenguajes nombrados o utilizados en los proyectos que hemos visto en nuestro caso se trata de MNIST complementado con la ESP32 CAM esto como tal no nos ayudará a expresar letras con el fin de crear palabras ya que este lenguaje no es como los otros utilizados en este tipo de proyectos los otros lenguajes pueden con solo una seña como puede ser en el caso de de el ASL (Americano) o del LSch (Chileno) que es el nacional tambien seria bueno crear algún prototipo con nuestro lenguaje de señas nacional pero eso implicaría algo más complejo que este prototipo ya que la ESP32 CAM solo detecta de manera estática y nuestro lenguaje de señas nacional es hasta con movimiento de cuerpo para dar a explicar una acción o palabra.
+
+
+
+
+
+
+
+
+
+Las diferencias entre estos proyectos y el nuestro son varios la verdad pero con un mismo fin como principales diferencias tenemos el lenguaje de señas por la razón de que nosotros ocupamos la base de datos MNIST complementado con ESP32 CAM al conocer nuestros componentes y comparar con los de los demás proyectos podemos captar que las otras bases de datos o lenguajes de señas traducen y con una seña se puede expresar una palabra en cambio el nuestro hablando de MNIST solo traduciremos letra por letra y así tener mas precisión al  ser traducido y mostrado en pantalla también al hacerlo con la ESP32 CAM solo podemos captar señas de manera estática hay también encontramos una gran diferencia con otros traductores de señas.  
+ 
+A continuación les mostrare un pequeño resumen de los proyectos comentados:
+
+The starner: Este proyecto trata sobre la traducción del lenguaje  de señas este como tal no tiene un nombre específico por esto se le llama por el nombre del creador también hay que destacar que estos es un conjunto de varios aportes sobre el lenguaje de señas que fueron añadiendo personas para poder llegar a crear esto, este se puede clasificar como uno de los primeros proyectos creados sobre el lenguaje de señas el que consiste en colocarse un guante con sensores y funciona con redes neuronales.
+
+Pigou et AI : este está relacionado o enfocado en redes neuronales convencionales y se centra en el análisis de imágenes captadas por cámaras y así observando partes claves de la traducción este modelo es uno de los más destacados por su versatilidad.
+
+DeepSignBridge: Este es el único sistema sudamericano nombrado en este informe y consiste en el reconocimiento de gestos o señas este proyecto mejora en cuanto a los otros por la precisión de su traducción, este sobresale por su capacidad de integrar sensores de movimiento y cámaras avanzadas así capturar expresiones faciales y el lenguaje de señas.   
+
+
+\section{Planteamiento}
+
+Provee un \naranjo{marco de referencia} para interpretar los resultados y conectarlos a la literatura existente sobre el fenómeno, orienta sobre cómo se realizará el estudio.
+
+ Ayuda a prevenir errores que se han cometido en otros estudios, conduce al establecimiento de la hipótesis o afirmaciones que se someterán a prueba.
+ 
+ Amplia el horizonte del estudio y centra al investigador en el problema, para evitar desviaciones del planteamiento original.
+
+Considera una \naranjo{revisión bibliográfica} que consiste en detectar, obtener y consultar la bibliografía y otros materiales que pueden ser útiles para los propósitos del estudio.
+
+La revisión bibliográfica debe ser selectiva, se puede realizar a partir de tres fuentes principales:
+
+\begin{itemize}\justifying
+  \item \naranjo{Primarias (directas):} Libros, artículos, antologías, tesis, disertaciones, entre otros.
+  \item \naranjo{Secundarias:} Compilaciones, resúmenes de listados de referencias publicadas en un área en particular, bases de datos.
+  \item \naranjo{Terciarias:} Documentos que reúnen nombres y títulos de revistas y otras publicaciones.
+\end{itemize}
+
+
+\begin{ejemplo}
+\lipsum[1]%reemplazar esta linea
+\end{ejemplo} 
+
+
+\section{Árbol de Problemas}
+\lipsum[1]%reemplazar esta linea
+
+\section{Justificación y Aporte}
+Justificar la conveniencia del proyecto desde diversos puntos de vista.
+
+Preguntas clave:
+  \begin{itemize}
+  \item ¿Para qué sirve la investigación?
+  \item ¿Quiénes se benefician con los resultados?
+  \item ¿Ayuda a resolver algún problema práctico?
+  \item ¿Contribuye a aumentar el conocimiento?
+  \item ¿Se podrán generalizar los resultado?
+\end{itemize}
+
+
+\begin{ejemplo}
+\lipsum[1]%reemplazar esta linea
+\end{ejemplo}
+
+
+\section{Viabilidad}
+Analizar la disponibilidad de recursos financieros, humanos y materiales.
+
+Preguntas clave:
+  \begin{itemize}\justifying
+  \item ¿Puede llevarse a cabo esta investigación?
+  \item ¿Cuánto tiempo tomará realizarla?
+\end{itemize}
+
+
+\section{Alcance}
+Que se planea realizar y hasta que punto se espera llegar.
+
+Esta subdivisión debe:
+\begin{enumerate}\justifying
+  \item Identifique el producto del software para ser diseñado por el nombre (por ejemplo, Anfitrión DBMS, el Generador del Reporte, etc.);
+  \item Explique eso que el producto (del software hará y que no hará.
+  \item Describe la aplicación del software especificándose los beneficios pertinentes, objetivos, y metas;
+  \item Sea consistente con las declaraciones similares en las especificaciones de niveles superiores (por ejemplo, las especificaciones de los requisitos del sistema), si ellos existen.
+\end{enumerate}
+
+
+
+
+
+
+\chapter{Fundamentación}
+
+\section{Objetivos}\label{objetivos}
+
+El objetivo central es desarrollar un prototipo funcional de un dispositivo que capte y traduzca la lengua de señas, garantizando que desde el inicio pueda reconocer un conjunto básico de señas.Paralelamente, se desarrollará un algoritmo de reconocimiento de patrones con la meta de alcanzar una precisión de al menos el 85 en la traducción de señas a texto para el final del semestre. Se realizarán pruebas exhaustivas de usabilidad y funcionalidad para obtener retroalimentación y asegurar la efectividad del dispositivo. La retroalimentación de estas pruebas será vital para mejorar y refinar el dispositivo, asegurando que el prototipo no solo sea funcional, sino que también responda eficazmente a las necesidades reales de los usuarios antes de la entrega final. 
+
+
+Por ejemplo:
+  \begin{itemize}
+  \
+\end{itemize}
+\subsection{General}
+El objetivo general es crear un traductor se señas donde desarrollamos un código, donde las señas son leídas y le damos un valor a una seña como letra del abecedario, acá el objetivo de nosotros es hacer que la cámara lea cada seña y escriba lo que dice la persona a través de señas, y que nosotros podamos ver en pantalla la interacción con la persona de manera amena y sin problemas, acá la inclusión es lo más importante para nosotros, el sentir que podemos darle un poder de comunicación a la persona y que podemos interactuar sin necesidad de sentir que excluimos a ella, ya que muchos de nosotros no sabemos lenguaje de señas.
+
+\subsection{Específicos}
+\begin{enumerate}\justifying
+  Objetivos más específicos para nosotros fueron, el código que creamos en python, el cual nos ayudó a que las señas puedan ser leídas a través de la cámara, ESP32 CAM, donde tuvimos que ingresar seña a seña del lenguaje MNIST, nosotros estuvimos modificando cada gesto en la pantalla que para al final se pueda ingresar bien el lenguaje, si la mano no es bien detectada, la pantalla va a indicar que no se puede leer y en eso nos propusimos indicar que la cámara ESP32CAM, necesita leer de nuevo la mano y así poder indicar lo que se dice en la pantalla indicada.
+ 
+  \item \lipsum[1]%reemplazar esta linea
+
+\end{enumerate}
+
+
+
+\section{Metodología}
+Esto no es hacer referencia a métodos y herramientas que se usarán en el desarrollo del trabajo. Sino que describir como se llevará a cabo el trabajo.
+
+Por lo tanto, nuevamente se puede plantear la solución (el proyecto) en términos explícitos de: los objetivos generales y específicos.
+
+Posteriormente relacionar el cumplimiento de los objetivos específicos con tareas o actividades a desarrollar (al final se debe incluir seguramente actividades de validación y prueba del producto - plan de prueba).
+
+\subsection{Planificación}
+
+
+
+\subsection{Equipo de Trabajo}
+
+
+\begin{landscape}
+\subsection{Carta Gantt}\label{sec:gantt}
+\begin{figure}[hbt]
+  \centering
+  %\includegraphics{}
+  \caption{Carta Gantt del Proyecto XYZ}
+  \label{gantt}
+\end{figure}
+\end{landscape}
+
+
+
+
+
+
+
+En la Tabla \ref{t:info} se muestran las características de los sistemas GNU/Linux, obtenidas desde \cite{001}.
+
+
+\begin{table}[hbt]
+\begin{center}
+\begin{tabular}{|l|p{10cm}|}\hline
+\multicolumn{2}{|c|}{\textbf{Información general}}\\
+\hline
+\textbf{Modelo de desarrollo}&desarrollo	Software libre y código abierto\\
+\textbf{Última versión estable}&Kernel: 4.11.3 (info) 25 de mayo de 2017 (10 días)\\
+\textbf{Última versión en pruebas}&	4.12.rc2 (info) 22 de mayo de 2017 (13 días)\\
+\textbf{Escrito en}&	C\\
+\textbf{Núcleo}&	Núcleo Linux\\
+\textbf{Plataformas soportadas}	& DEC Alpha, ARM, AVR32, Blackfin, ETRAX CRIS, FR-V, H8/300, Itanium, M32R, m68k, Microblaze, MIPS, MN103, PA-RISC, PowerPC, s390, S+core, SuperH, SPARC, TILE64, Unicore32, x86, Xtensa\\
+\textbf{Licencia}	&GNU General Public License y otras\\
+\textbf{Estado actual}	&En desarrollo\\
+\textbf{En español}	&Sí\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Información General de GNU/Linux}
+\label{t:info}
+\end{table}
+
+
+\chapter{Desarrollo del Proyecto}
+
+
+\section{Definición del Problema}
+
+
+\section{Propuesta de Solución}
+
+
+
+
+\chapter{Conclusión}
+Finalmente, el propósito de nuestro proyecto busca derribar las barreras de comunicación que enfrentan los individuos con discapacidades auditivas con el conjunto de datos de MNIST ya que eso muestra las letras desde la a asta la z, formateando así una mayor inclusión social y permitiendo que la comunidad sorda se comunique más fluidamente y participe activamente en diversos contextos cotidianos. 
+
+Nuestro principal objetivo con este proyecto es desarrollar un prototipo funcional de un dispositivo capaz de captar y traducir la lengua de señas en tiempo real.
+
+\section{Principales aportes}
+\subsection{Innovación en la Accesibilidad y Comunicación}
+El beneficio más significativo o contribución de este proyecto a la humanidad es la mejora en la comunicación y la accesibilidad de los sordos o cualquier otra persona con discapacidad auditiva. La traducción de los gestos de lenguaje de señas hasta hacerlos estables y dígitos al texto en vivo de un idioma convencional establece un puente tecnológico que facilita la comunicación y la conexión. Esto promete una casilla de inclusión y la independencia.
+\subsection{Base para Futuras Expansiones y Aplicaciones}
+El proyecto sienta una base sólida para futuras investigaciones y desarrollos. La metodología establecida para la captura de imágenes, el procesamiento previo, el entrenamiento de modelos y la integración con hardware y pantallas puede escalarse para: reconocer un vocabulario más amplio de ASL, incluidos los signos dinámicos y las oraciones completas; integrar la retroalimentación por voz para habilitar una comunicación bidireccional; adaptarse a otros idiomas de señas; desplegarse en contextos educativos, de centro de llamadas o de atención personal.
+
+
+
+
+\section{Contraste de resultados}
+
+\lipsum[1]%reemplazar esta linea
+
+\section{Trabajo Futuro}
+En un futuro uso lo podríamos verlo ya mas avanzado en mas zonas públicas como por ejemplo hospitales, aeropuertos etc. Para poder ser una comunicación mas fluidas a las personas sordas mudas así tener la libertad para poder salir sin tener a alguien al lado que lo esté ayudando en la comunicación.
+
+
+También podríamos aplicar en Escuelas, que seria aplicado a los estudiantes y profesoras que pueden poseer esta condición así facilitando la comunicación, o crear una página donde podría crear para clases donde haya la materia y al lado vaya el lenguaje de seña así ser mas claro para las personas sorda muda.
+
+
+Esos fueron ejemplos donde en un futuro vemos nuestro proyecto si sale correctamente, así ampliando nuestro proyecto y ver diferente el mundo donde no hayan barreras a esas personas y poder tener los mismo derechos a poder comunicarse en lugares públicos, educativos, trabajos laborales etc. Esto ayudaría a todos ya que existen personas que no conoces el lenguaje de señas entonces en la pantalla será traducido y saber lo que dice la persona para lograr una comunicación fluida.
+
+\lipsum[1]%reemplazar esta linea
+
+
+
+
+
+%%%%%
+%agregar referencias
+\bibliographystyle{IEEEtran}
+%\nocite{*} % mostrar todas las referencias aunque no esten citadas
+\bibliography{bibliografia.bib}
+
+\input{Anexos}
+
+\end{document}
