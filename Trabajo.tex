@@ -1,0 +1,211 @@
+\documentclass[a4paper,12pt]{article}
+\input{Macros.tex}
+
+
+\begin{document}
+
+\newcommand{\TITULO}{Informe Proyecto signXcam}
+\newcommand{\subtitulo}{}
+\newcommand{\carrera}{Ingeniería en Informática}
+\newcommand{\asignatura}{ICINF2025 - Proyecto}
+\newcommand{\campus}{Universidad de Los Lagos, Campus Osorno}
+\newcommand{\BackgroundPic}{
+    \put(0,0){
+        \parbox[b][\paperheight]{\paperwidth}{
+            \vfill
+            \centering
+            \includegraphics[width=\paperwidth,height=\paperheight]{images/portada.png}
+            \vfill
+        }
+    }
+}
+
+%%%%%%%%%%%PORTADA%%%%%%%%%%%%%%%%%%%%%
+\setlength{\unitlength}{1 cm}
+\thispagestyle{empty}
+
+\AddToShipoutPicture*{\BackgroundPic}
+{\color{white}
+   \title{
+      \vspace{4cm}
+      \huge{\MakeUppercase{\textbf{\TITULO}}}\\
+      \upshape \large{\textit{\MakeUppercase{\subtitulo}}}\\
+      \vspace{1cm}
+      \Large \MakeUppercase{Departamento de Ciencias de La Ingeniería}\\
+      \Large \MakeUppercase{\carrera}\\
+      \Large \MakeUppercase{\asignatura}\\
+      \large \MakeUppercase{\campus}\\[2cm]
+      \textbf{Integrantes:}\\[0.5cm]
+      Martin Rodriguez -- \texttt{martinpatricio.rodriguez@gmail.com}\\
+      Isidora Santa Cruz -- \texttt{isidorajesus.santacruz@alumnos.ulagos.cl}\\
+      Axel Ulloa -- \texttt{axel.ulloa@alumnos.ulagos.cl}\\
+      David Manquel -- \texttt{davidalexis.manquel@alumnos.ulagos.cl}\\
+      Hermione Martinez -- \texttt{hermione.martinez@alumnos.ulagos.cl}\\
+   }
+   \date{\vspace{5cm}\hspace{7cm}\raggedright 19 de junio de 2025}
+   \maketitle
+   \ClearShipoutPicture
+}
+
+\cleardoublepage
+\pagenumbering{roman}
+\setcounter{page}{1}
+%%%%%%%%%%%%%FIN PORTADA%%%%%%%%%%%%%%%%
+
+% Resumen
+\section*{Resumen}
+El proyecto SignXCam tiene como propósito desarrollar un traductor de lengua de señas a texto en tiempo real, utilizando una arquitectura simple pero eficiente basada únicamente en una cámara ESP32-CAM, un computador y software desarrollado en Arduino IDE y Python. Este sistema busca facilitar la comunicación entre personas sordas o mudas y quienes no manejan la lengua de señas, promoviendo la inclusión y la accesibilidad tecnológica.
+
+La cámara ESP32-CAM cumple la función de capturar en tiempo real los gestos realizados con la mano. Este dispositivo, programado mediante código en Arduino IDE, se configura para transmitir las imágenes al computador, donde se procesa la información visual. En el computador, un script en Python —desarrollado con bibliotecas como OpenCV, MediaPipe y TensorFlow— se encarga del procesamiento y reconocimiento de los gestos.
+
+El código Python toma las imágenes recibidas de la cámara y detecta las posiciones de la mano utilizando MediaPipe Hands. Luego, se recorta y normaliza la zona de interés (la mano), que se redimensiona a 64x64 píxeles. Estas imágenes se ingresan a un modelo de aprendizaje automático previamente entrenado, el cual predice la letra correspondiente del alfabeto en lengua de señas americana (ASL). La predicción se muestra en pantalla, permitiendo así una comunicación básica mediante texto generado desde los gestos.
+
+El proyecto no requiere microcontroladores adicionales, pantallas externas ni hardware complejo. Todo el procesamiento ocurre en el computador, lo cual simplifica la implementación y reduce costos. El modelo de predicción se basa en un entrenamiento con el conjunto de datos MNIST modificado o similar, adaptado para reconocer letras del abecedario a partir de imágenes estáticas.
+
+SignXCam busca alcanzar una precisión mínima del 85 porciento en el reconocimiento de señas, como meta funcional del semestre. En el futuro, se espera que esta solución pueda ser aplicada en entornos como escuelas, hospitales y servicios públicos, brindando una herramienta útil, inclusiva y de bajo costo para la sociedad.
+% Índice
+\tableofcontents
+\newpage
+
+% Introducción
+\section{Introducción}
+El proyecto \textbf{signXcam} surge como una solución a [describir problema o necesidad]. El propósito es [explicar propósito]. Este informe detalla el proceso de desarrollo, los desafíos enfrentados y los resultados alcanzados.
+
+\section{Objetivos}
+
+% Marco Teórico
+\section{Justificacion}
+
+
+% Desarrollo
+\section{Desarrollo}
+El desarrollo del proyecto se estructuró en las siguientes etapas:
+\begin{enumerate}
+    \item \textbf{Planificación:} Definición de objetivos y selección de herramientas.
+    \item \textbf{Implementación:} Desarrollo de la solución utilizando [lenguajes, frameworks, hardware, etc.].
+    \item \textbf{Pruebas:} Validación del funcionamiento y robustez del sistema.
+    \item \textbf{Resultados:} Análisis de los datos obtenidos y evaluación del cumplimiento de los objetivos.
+\end{enumerate}
+Durante la implementación se enfrentaron desafíos como [mencionar desafíos], resueltos mediante [explicar soluciones].
+
+\section{Carta Gantt}
+
+\definecolor{fase1}{RGB}{255,200,200}  % Rosa claro - Investigación
+\definecolor{fase2}{RGB}{200,255,200}  % Verde claro - Presentación
+\definecolor{fase3}{RGB}{200,200,255}  % Azul claro - Desarrollo
+\definecolor{fase4}{RGB}{255,255,200}  % Amarillo claro - Documentación Final
+\definecolor{headercolor}{RGB}{150,255,150}  % Verde para encabezados
+
+\begin{center}
+\huge\textbf{CARTA GANTT}
+\end{center}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{|p{5cm}|*{5}{c|}}
+\hline
+\rowcolor{headercolor}
+\multicolumn{1}{|c|}{\textbf{ACTIVIDADES}} & \multicolumn{5}{c|}{\textbf{PERIODO}} \\
+\hline
+\rowcolor{headercolor}
+\textbf{SEMANA} & 1-7 Jun & 8-14 Jun & 15-21 Jun & 22-28 Jun & 29 Jun-5 Jul \\
+\hline
+
+% Fase 1: Investigación
+\rowcolor{fase1} Investigación Inicial ASL (Todos) & X & & & & \\
+\hline
+\rowcolor{fase1} Estudio ESP32-CAM (MR, AU) & X & & & & \\
+\hline
+\rowcolor{fase1} Investigación MediaPipe (AU, HM) & X & & & & \\
+\hline
+\rowcolor{fase1} Análisis OpenCV (DM, IS) & X & & & & \\
+\hline
+
+% Fase 2: Presentación PPT
+\rowcolor{fase2} Estructura PPT (IS, HM) & & X & & & \\
+\hline
+\rowcolor{fase2} Desarrollo Contenido PPT (Todos) & & X & & & \\
+\hline
+\rowcolor{fase2} Revisión y Ajustes PPT (DM, IS) & & X & & & \\
+\hline
+\rowcolor{fase2} Presentación Avance (Todos) & & & X & & \\
+\hline
+
+% Fase 3: Desarrollo
+\rowcolor{fase3} Configuración ESP32-CAM (MR, AU) & & & X & & \\
+\hline
+\rowcolor{fase3} Implementación MediaPipe (AU, HM) & & & X & X & \\
+\hline
+\rowcolor{fase3} Desarrollo Detección (DM, IS) & & & & X & \\
+\hline
+\rowcolor{fase3} Integración OpenCV (MR, AU) & & & & X & \\
+\hline
+\rowcolor{fase3} Dataset y Entrenamiento (Todos) & & & & X & X \\
+\hline
+\rowcolor{fase3} Pruebas Sistema (Todos) & & & & & X \\
+\hline
+
+% Fase 4: Documentación Final
+\rowcolor{fase4} Estructura Informe (IS, HM) & & & X & & \\
+\hline
+\rowcolor{fase4} Desarrollo Marco Teórico (IS, HM) & & & X & X & \\
+\hline
+\rowcolor{fase4} Documentación Técnica (MR, AU) & & & & X & X \\
+\hline
+\rowcolor{fase4} Resultados y Conclusiones (DM) & & & & & X \\
+\hline
+\rowcolor{fase4} Revisión Final (Todos) & & & & & X \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Sigla} & \textbf{Integrante} & \textbf{Rol Principal} \\
+\hline
+MR & Martin Rodriguez & Hardware y Desarrollo \\
+IS & Isidora Santa Cruz & Documentación e Investigación \\
+AU & Axel Ulloa & Software y Desarrollo \\
+DM & David Manquel & Integración y Testing \\
+HM & Hermione Martinez & Documentación e Investigación \\
+Todos & Trabajo en equipo & - \\
+\hline
+\end{tabular}
+\caption{Leyenda de Responsables y Roles}
+\end{table}
+
+\begin{itemize}
+\item \textcolor{fase1}{\rule{0.5cm}{0.5cm}} Fase 1: Investigación (Semana 1)
+\item \textcolor{fase2}{\rule{0.5cm}{0.5cm}} Fase 2: Presentación PPT (Semanas 2-3)
+\item \textcolor{fase3}{\rule{0.5cm}{0.5cm}} Fase 3: Desarrollo (Semanas 3-5)
+\item \textcolor{fase4}{\rule{0.5cm}{0.5cm}} Fase 4: Documentación Final (Semanas 3-5)
+\end{itemize}
+
+\textbf{Observaciones:}
+\begin{itemize}
+\item La investigación se concentra al inicio del proyecto
+\item La presentación PPT se desarrolla una vez completada la investigación
+\item El desarrollo técnico comienza después de la presentación inicial
+\item La documentación final se realiza en paralelo con el desarrollo
+\item Se mantienen instancias de trabajo en equipo para integración y revisiones
+\item Se considera tiempo para ajustes y correcciones finales
+\end{itemize}
+\section{Equipo de Trabajo}
+\section{Conclusiones}
+El proyecto \textbf{signXcam} permitió [resumir logros]. Se cumplieron los objetivos planteados, destacando [mencionar aspectos más relevantes]. Como trabajo futuro se propone [sugerir mejoras o extensiones].
+\subsection{Resultados}
+A continuación se presentan ejemplos y resultados obtenidos durante el desarrollo del proyecto:
+
+\cite{000}
+
+\printbibliography
+% Anexos
+\appendix
+\section{Anexos}
+\subsection{Anexos del Trabajo}
+\subsection{Anexo de ejemplo con código}
+
+\end{document}
